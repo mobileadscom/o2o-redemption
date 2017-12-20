@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupon Redemption</title>
+    <script type="text/javascript" src="http://localhost:8080/public/dist/bundle.js"></script>
+    <link href="http://localhost:8080/public/dist/main.css" rel="stylesheet">
+</head>
+<body>
+
+   <div id="mainPage" style="display: none;">
+    	<h1>Coupon</h1>
+    	<p id="code"></p>
+    	<div class="slide-path"> <!--slide-path is the path for swiping of redeem button, not used if trigger method of button is set to 'click' -->
+            <button id="mainBtn">Redeem</button>
+        </div>
+    </div>
+    <div id="confirmPage" style="display: none;">
+    	<h1>Confirm to redeem</h1>
+    	<select id="storeInput" style="display: none;"> <!-- Selection for stores in multi store situation, can be removed if not using -->
+    		<option value="n">Select Store</option>
+    	</select>
+    	<br>
+    	<input id="pinInput" type="text" placeholder="merchant pin" style="display: none;" /> <!-- input for pin code, can be removed if not using -->
+    	<br>
+    	<button id="confirmBtn">Confirm</button>
+    	<button class="cancelBtn">Cancel</button>
+    </div>
+    <div id="thankyouPage" style="display: none;">
+        <h1>Thank You</h1>
+        <p>Redeemed Successfully</p>
+        <button class="cancelBtn">OK</button>
+    </div>
+    <div id="redeemedPage" style="display: none;">
+    	<h1>Coupon Already Redeemed</h1>
+    	<button class="cancelBtn">OK</button>
+    </div>
+
+</body>
+</html>

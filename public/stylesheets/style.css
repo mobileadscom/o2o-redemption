@@ -1,0 +1,22 @@
+body {
+    background-color: #333333;
+    text-align: center;
+    color: white;
+    margin: 0px;
+}
+
+#mainPage .slide-path {
+    width: 250px;
+    background-color: yellow;
+    margin: auto;
+    text-align: left;
+    position: relative;
+}
+
+#storeInput {
+	margin-bottom: 20px;
+}
+
+#pinInput {
+	margin-bottom: 20px;
+}

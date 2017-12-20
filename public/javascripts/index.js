@@ -54,15 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	                class: 'cancelBtn'
 	            },
 	        },
-	        pin: { // optional for pin confirmation on redeem, please remove this if not using
+	        pin: { // {{optional}} for pin confirmation on redeem, please remove this if not using
 	        	id: 'pinInput', // id of the <input> for code entering
 	        	code: '0123' // confirmation pin code
 	        },
-	        storeSelect: { // optional for multi store, please remove this if it's single store
+	        storeSelect: { // {{optional}} for multi store, please remove this if it's single store
 	        	id: 'storeInput', // id of the <select> for stores
                 stores: ['store1','store2'] // stores to select
 	        },
-	        extRedeemTracker: ['http://externaltracker'], //external tracker for redemption
+	        extRedeemTracker: ['http://externaltracker'], // {{optional}} for external tracker of redemption, please remove this if not using
 	        trackingParam: { // used in the tracking url of redemption
 	        	dsp: 'test',
 	        	exchange: 'NA',

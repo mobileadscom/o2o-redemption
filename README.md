@@ -1,6 +1,6 @@
 # O2O Coupon Redemption Plugin
 
-### HTML structure should be as shown in views\pages\index.ejs
+#### HTML structure should be as shown in views\pages\index.ejs
 
 which consist of 4 pages
 - Main Coupon Page, which has the redeem button. The event of the button can be set to clicking or swiping. Triggering the button show the Confirmation Page.
@@ -9,7 +9,7 @@ which consist of 4 pages
 - Already Redeemed Page, which is shown when the coupon is already redeemed before.
 
 
-### Coupon settings can be set in public\javascripts\index.js, which is also the entry point of webpack
+#### Coupon settings can be set in public\javascripts\index.js, which is also the entry point of webpack
 ```
 coupon.init({
     campaign: {
@@ -37,15 +37,15 @@ coupon.init({
             class: 'cancelBtn'
         },
     },
-    pin: { // optional for pin confirmation on redeem, please remove this if not using
+    pin: { // {{optional}} for pin confirmation on redeem, please remove this if not using
     	id: 'pinInput', // id of the <input> for code entering
     	code: '0123' // confirmation pin code
     },
-    storeSelect: { // optional for multi store, please remove this if it's single store
+    storeSelect: { // {{optional}} for multi store, please remove this if it's single store
     	id: 'storeInput', // id of the <select> for stores
         stores: ['store1','store2'] // stores to select
     },
-    extRedeemTracker: ['http://externaltracker'], //external tracker for redemption
+    extRedeemTracker: ['http://externaltracker'], // {{optional}} for external tracker of redemption
     trackingParam: { // used in the tracking url of redemption
     	dsp: 'test',
     	exchange: 'NA',

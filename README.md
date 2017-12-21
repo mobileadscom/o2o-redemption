@@ -9,7 +9,7 @@ which consist of 4 pages
 - Already Redeemed Page, which is shown when the coupon is already redeemed before.
 
 
-#### Coupon settings can be set in public\javascripts\index.js, which is also the entry point of webpack
+#### Coupon redemption settings
 ```
 coupon.init({
     campaign: {

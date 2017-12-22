@@ -153,7 +153,7 @@ var coupon = {
                 });
             } 
             else {
-                // coupon.buttons.main.parentElement.className = "";
+                // coupon.buttons.main[m].parentElement.className = "";
                 coupon.buttons.main[m].addEventListener('click', function () {
                     if ( !jammer.isJammed(this) ) {
                         jammer.jam(this);

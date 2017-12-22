@@ -11,9 +11,9 @@
    <div id="mainPage" style="display: none;">
         <h1>Coupon</h1>
         <p id="code"></p>
-        <div class="slide-path"> <!--slide-path is the path for swiping of redeem button, not used if trigger method of button is set to 'click' -->
-            <button id="mainBtn">Redeem</button>
-        </div>
+        <!--<div class="slide-path"> --><!--Path for swiping of redeem button. Remove this if not using swipe-->
+            <button class="mainBtn">Redeem</button>
+        <!--</div>-->
     </div>
     <div id="confirmPage" style="display: none;">
         <h1>Confirm to redeem</h1>
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             buttons: {
                 main: { // main button that bring to confirm redeem page
-                    id: 'mainBtn',
+                    class: 'mainBtn',
                     event: 'click', // event: 'click' || 'swipe'
                 },
                 redeem: { // redeem button on the confirmation page, clicking it will redeem the coupon

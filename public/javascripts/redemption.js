@@ -141,24 +141,26 @@ var coupon = {
 
         /* buttons setup */
         var event = options.buttons.main.event;
-        coupon.buttons.main = document.getElementById(coupon.buttons.main.id);
+        coupon.buttons.main = document.getElementsByClassName(coupon.buttons.main.class);
         coupon.buttons.redeem = document.getElementById(coupon.buttons.redeem.id);
         coupon.buttons.back = document.getElementsByClassName(coupon.buttons.back.class);
 
         // main button
-        if (event == 'swipe') {
-            slider.init(coupon.buttons.main, function() {
-                coupon.showPage(coupon.pages.confirm);
-            });
-        } 
-        else {
-            coupon.buttons.main.parentElement.className = "";
-            coupon.buttons.main.addEventListener('click', function () {
-                if ( !jammer.isJammed(this) ) {
-                    jammer.jam(this);
+        for ( var m = 0; m < coupon.buttons.main.length; m++ ) {
+            if (event == 'swipe') {
+                slider.init(coupon.buttons.main[m], function() {
                     coupon.showPage(coupon.pages.confirm);
-                }
-            });
+                });
+            } 
+            else {
+                // coupon.buttons.main.parentElement.className = "";
+                coupon.buttons.main[m].addEventListener('click', function () {
+                    if ( !jammer.isJammed(this) ) {
+                        jammer.jam(this);
+                        coupon.showPage(coupon.pages.confirm);
+                    }
+                });
+            }
         }
 
         // redeem button

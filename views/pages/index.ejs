@@ -10,7 +10,7 @@
 
    <div id="mainPage" style="display: none;">
         <h1>Coupon</h1>
-        <p id="code"></p>
+        <p class="code"></p>
         <!--<div class="slide-path"> --><!--Path for swiping of redeem button. Remove this if not using swipe-->
             <button class="mainBtn">Redeem</button>
         <!--</div>-->
@@ -64,54 +64,66 @@
 } ();
 
 document.addEventListener('DOMContentLoaded', function() {
+    var isSample = false;
+    var rCode = '0104347787';
+    var codeEl = document.getElementsByClassName('code');
+
     if ( params.phoneNo ) {
-        var codeEl = document.getElementById('code');
-        codeEl.innerHTML = params.phoneNo;
-        coupon.init({
-            campaign: {
-                campaignId: 'b46fd1e21b2d7ff50bac2ce6fd5dfdc3',
-                studioId: '51',
-                userId: '3774',
-                code: params.phoneNo // query parameter in the url for the coupon code
-            },
-            multipleRedemption: false,
-            pages: {
-                main: 'mainPage', // main page that has the coupon and a button that brings to confirm redeem page
-                confirm: 'confirmPage', // Redeem Confirmation page which has redeem button and cancel button
-                thankyou: 'thankyouPage', // Thank You page after redemption is successful
-                redeemed: 'redeemedPage' // 'Already redeemed page if the coupon is already readeemed'
-            },
-            buttons: {
-                main: { // main button that bring to confirm redeem page
-                    class: 'mainBtn',
-                    event: 'click', // event: 'click' || 'swipe'
-                },
-                redeem: { // redeem button on the confirmation page, clicking it will redeem the coupon
-                    id: 'confirmBtn'
-                },
-                back: { // back buttons, clicking it will bring back to the main page
-                    class: 'cancelBtn'
-                },
-            },
-            pin: { // {{optional}} for pin confirmation on redeem, please remove this if not using
-                id: 'pinInput', // id of the <input> for code entering
-                code: '0123' // confirmation pin code
-            },
-            storeSelect: { // {{optional}} for multi store, please remove this if it's single store
-                id: 'storeInput', // id of the <select> for stores
-                stores: ['store1','store2'] // stores to select
-            },
-            extRedeemTracker: ['http://externaltracker'], // {{optional}} for external tracker of redemption, please remove this if not using
-            trackingParam: { // used in the tracking url of redemption
-                dsp: 'test',
-                exchange: 'NA',
-                inventory: 'www.test.com'
-            },
-            isPreview: true // preview mode or real serving mode. On preview mode, there's no actual validation nor tracking.
-        });
+        rCode = params.phoneNo;
     }
     else {
-        alert('url doesn\'t contain phoneNo, please get the correct url with phoneNo');
+        isSample = true;
+    }
+
+    for ( var c = 0; c < codeEl.length; c++ ) {
+        codeEl[c].innerHTML = rCode;
+    }
+
+    coupon.init({
+        campaign: {
+            campaignId: 'b46fd1e21b2d7ff50bac2ce6fd5dfdc3',
+            studioId: '51',
+            userId: '3774',
+            code: rCode // query parameter in the url for the coupon code
+        },
+        multipleRedemption: false,
+        pages: {
+            main: 'mainPage', // main page that has the coupon and a button that brings to confirm redeem page
+            confirm: 'confirmPage', // Redeem Confirmation page which has redeem button and cancel button
+            thankyou: 'thankyouPage', // Thank You page after redemption is successful
+            redeemed: 'redeemedPage' // 'Already redeemed page if the coupon is already readeemed'
+        },
+        buttons: {
+            main: { // main button that bring to confirm redeem page
+                class: 'mainBtn',
+                event: 'click', // event: 'click' || 'swipe'
+            },
+            redeem: { // redeem button on the confirmation page, clicking it will redeem the coupon
+                id: 'confirmBtn'
+            },
+            back: { // back buttons, clicking it will bring back to the main page
+                class: 'cancelBtn'
+            },
+        },
+        pin: { // {{optional}} for pin confirmation on redeem, please remove this if not using
+            id: 'pinInput', // id of the <input> for code entering
+            code: '0123' // confirmation pin code
+        },
+        storeSelect: { // {{optional}} for multi store, please remove this if it's single store
+            id: 'storeInput', // id of the <select> for stores
+            stores: ['store1','store2'] // stores to select
+        },
+        extRedeemTracker: ['http://externaltracker'], // {{optional}} for external tracker of redemption, please remove this if not using
+        trackingParam: { // used in the tracking url of redemption
+            dsp: 'test',
+            exchange: 'NA',
+            inventory: 'www.test.com'
+        },
+        isPreview: true // preview mode or real serving mode. On preview mode, there's no actual validation nor tracking.
+    });
+
+    if (isSample) {
+        alert('url doesn\'t contain coupon code, using sample coupon');
     }
 });
 </script>

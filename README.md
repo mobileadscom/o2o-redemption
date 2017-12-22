@@ -27,7 +27,7 @@ coupon.init({
     },
     buttons: {
         main: { // main button that bring to confirm redeem page
-            id: 'mainBtn',
+            class: 'mainBtn',
             event: 'click', // event: 'click' || 'swipe'
         },
         redeem: { // redeem button on the confirmation page, clicking it will redeem the coupon

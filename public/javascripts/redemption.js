@@ -148,9 +148,11 @@ var coupon = {
         // main button
         for ( var m = 0; m < coupon.buttons.main.length; m++ ) {
             if (event == 'swipe') {
+                coupon.pages.main.style.display = 'block'; // slider width can't be measured if 'display' is 'none'
                 slider.init(coupon.buttons.main[m], function() {
                     coupon.showPage(coupon.pages.confirm);
                 });
+                coupon.pages.main.style.display = 'none';
             } 
             else {
                 // coupon.buttons.main[m].parentElement.className = "";

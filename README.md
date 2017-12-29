@@ -2,11 +2,12 @@
 
 #### HTML structure should be as shown in views\pages\index.ejs
 
-which consist of 4 pages
+which consist of 5 pages
 - Main Coupon Page, which has the redeem button. The event of the button can be set to clicking or swiping. Triggering the button show the Confirmation Page.
 - Confirmation Page, consist of pin input and store selection (both are optional), and a 'confirm' button to redeem the coupon
 - Thank You Page, which is shown when coupon successfully redeemed.
 - Already Redeemed Page, which is shown when the coupon is already redeemed before.
+- Invalid Coupon Page, which is shown if the coupon is not registered.
 
 
 #### Coupon redemption settings
@@ -23,7 +24,8 @@ coupon.init({
         main: 'mainPage', // main page that has the coupon and a button that brings to confirm redeem page
         confirm: 'confirmPage', // Redeem Confirmation page which has redeem button and cancel button
         thankyou: 'thankyouPage', // Thank You page after redemption is successful
-        redeemed: 'redeemedPage' // 'Already redeemed page if the coupon is already readeemed'
+        redeemed: 'redeemedPage' // 'Already redeemed page if the coupon is already readeemed',
+        invalid: 'invalidPage' // Invalid coupon page if the coupon is not registered
     },
     buttons: {
         main: { // main button that bring to confirm redeem page

@@ -98,7 +98,12 @@ var coupon = {
                     }
                 } 
                 else { /* already redeemed */
-                    coupon.showPage(coupon.pages.redeemed);
+                    if ( response.data.message == 'Coupon not exist.') {
+                        coupon.showPage(coupon.pages.invalid);
+                    }
+                    else {
+                        coupon.showPage(coupon.pages.redeemed);
+                    }
                 }
             }).catch(function (error) {
                 alert('Invalid coupon or connection error');

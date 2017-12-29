@@ -35,6 +35,10 @@
         <h1>Coupon Already Redeemed</h1>
         <button class="cancelBtn">OK</button>
     </div>
+    <div id="invalidPage" style="display: none;">
+        <h1>Coupon is Invalid</h1>
+        <button class="cancelBtn">OK</button>
+    </div>
 
 </body>
 </html>
@@ -68,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var rCode = '0104347787';
     var codeEl = document.getElementsByClassName('code');
 
-    if ( params.phoneNo ) {
-        rCode = params.phoneNo;
+    if ( params.uniqueCode) {
+        rCode = params.uniqueCode;
     }
     else {
         isSample = true;
@@ -91,7 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
             main: 'mainPage', // main page that has the coupon and a button that brings to confirm redeem page
             confirm: 'confirmPage', // Redeem Confirmation page which has redeem button and cancel button
             thankyou: 'thankyouPage', // Thank You page after redemption is successful
-            redeemed: 'redeemedPage' // 'Already redeemed page if the coupon is already readeemed'
+            redeemed: 'redeemedPage', // 'Already redeemed page if the coupon is already readeemed'
+            invalid: 'invalidPage'
         },
         buttons: {
             main: { // main button that bring to confirm redeem page
@@ -123,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     if (isSample) {
-        alert('url doesn\'t contain coupon code, using sample coupon');
+        alert('url doesn\'t contain coupon code. Using sample coupon.');
     }
 });
 </script>

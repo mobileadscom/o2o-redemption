@@ -242,17 +242,22 @@ var coupon = {
         }
 
         // elements and settings done, start now
-        if ( !coupon.stores ) { /* single store */
-            console.log('single store');
-            coupon.validate({
-                userId: coupon.campaign.userId,
-                studioId: coupon.campaign.studioId,
-                code: coupon.campaign.code
-            });
+        if ( coupon.campaign.code ) {
+            if ( !coupon.stores ) { /* single store */
+                console.log('single store');
+                coupon.validate({
+                    userId: coupon.campaign.userId,
+                    studioId: coupon.campaign.studioId,
+                    code: coupon.campaign.code
+                });
+            }
+            else { /* multi store */
+                console.log('multi store');
+                coupon.currentPage.style.display = 'block';
+            }
         }
-        else { /* multi store */
-            console.log('multi store');
-            coupon.currentPage.style.display = 'block';
+        else {
+            coupon.showPage(coupon.pages.invalid);
         }
     }
 };

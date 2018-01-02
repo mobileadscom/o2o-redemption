@@ -44,7 +44,7 @@
 </html>
 
 <script>
-    var params = function (param) {
+var params = function (param) {
     // This function is anonymous, is executed immediately and 
     // the return value is assigned to QueryString!
     var query_string = {};
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var rCode = '0104347787';
     var codeEl = document.getElementsByClassName('code');
 
-    if ( params.uniqueCode) {
+    if ( params.uniqueCode ) {
         rCode = params.uniqueCode;
     }
     else {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
             campaignId: 'b46fd1e21b2d7ff50bac2ce6fd5dfdc3',
             studioId: '51',
             userId: '3774',
-            code: rCode // query parameter in the url for the coupon code
+            code: rCode // query parameter in the url for the coupon code, if code is empty, the invalid coupon page will be shown
         },
         multipleRedemption: false,
         pages: {
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
             confirm: 'confirmPage', // Redeem Confirmation page which has redeem button and cancel button
             thankyou: 'thankyouPage', // Thank You page after redemption is successful
             redeemed: 'redeemedPage', // 'Already redeemed page if the coupon is already readeemed'
-            invalid: 'invalidPage'
+            invalid: 'invalidPage' // Invalid coupon page if the coupon is not registered
         },
         buttons: {
             main: { // main button that bring to confirm redeem page
@@ -126,9 +126,5 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         isPreview: true // preview mode or real serving mode. On preview mode, there's no actual validation nor tracking.
     });
-
-    if (isSample) {
-        alert('url doesn\'t contain coupon code. Using sample coupon.');
-    }
 });
 </script>
